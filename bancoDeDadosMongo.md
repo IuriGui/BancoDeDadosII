@@ -1,7 +1,21 @@
+### MongoDB
+
+## Modelo ER
+
+![Logo da empresa](modeloER.png)
+
+
+
+
 ## 1. Versão Embedded
 ```javascript
 
 use catalogo_embedded;
+
+
+db.createCollection("desenvolvedores");
+db.createCollection("plataformas");
+db.createCollection("jogos");
 
 db.plataformas.insertMany([{
     nome: "PC",
@@ -130,6 +144,10 @@ db.jogos.find(
 
 use catalogo_jogos_referenced;
 
+db.createCollection("desenvolvedores");
+db.createCollection("plataformas");
+db.createCollection("jogos");
+
 
 db.desenvolvedores.insertMany([
   {
@@ -177,12 +195,6 @@ db.plataformas.insertMany([
     fabricante: "Sony",
     ano_lancamento: 2020,
     tipo: "Console"
-  },
-  {
-    nome: "Mobile",
-    fabricante: "Vários",
-    ano_lancamento: 2007,
-    tipo: "Dispositivo Móvel"
   }
 ]);
 
@@ -224,8 +236,7 @@ db.jogos.insertMany([
       db.plataformas.findOne({nome: "PC"})._id,
       db.plataformas.findOne({nome: "PlayStation 4"})._id,
       db.plataformas.findOne({nome: "Xbox One"})._id,
-      db.plataformas.findOne({nome: "Nintendo Switch"})._id,
-      db.plataformas.findOne({nome: "Mobile"})._id
+      db.plataformas.findOne({nome: "Nintendo Switch"})._id
     ]
   }
 ]);
